@@ -22,6 +22,8 @@ RUN a2enmod rewrite
 
 # Install Laravel dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN mkdir -p database
+RUN touch database/database.sqlite
 
 # Setup environment
 RUN cp .env.example .env
