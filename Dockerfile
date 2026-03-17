@@ -20,4 +20,12 @@ RUN cp .env.example .env
 
 RUN php artisan key:generate
 
-RUN chmod -R 775 storage bootstrap/cache
+# Setup environment
+RUN cp .env.example .env
+
+# Generate application key
+RUN php artisan key:generate
+
+# Fix Laravel permissions
+RUN chmod -R 777 storage
+RUN chmod -R 777 bootstrap/cache
