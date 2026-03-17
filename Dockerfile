@@ -28,6 +28,7 @@ RUN cp .env.example .env
 
 # Generate app key
 RUN php artisan key:generate
+RUN php artisan migrate --force
 
 # Fix permissions
 RUN chmod -R 777 storage bootstrap/cache
